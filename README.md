@@ -4,12 +4,13 @@ lesson-3-git-demo · Git 入门课的课堂跟练仓库
 
 你们三人一组，每人认领一个角色（Alice / Bob / Carol），整节课都用这个角色名完成下面的步骤。你们组的任务是：**一起决定周五聚餐吃什么**。你们都往这个仓库里交东西，顺便亲手走一遍 Git：先写名片报口味，再互相留言认识一下，然后为吃什么吵一架（冲突），最后翻一翻流水账，看看你们组是怎么定下来的。
 
-不用提前懂任何编程，照着下面一步一步敲就行。
+不用提前懂任何编程。**整节课你都不用自己动手跑命令**：你在 WorkBuddy 或 Codex 里用大白话告诉 AI 要做什么，AI 去执行 Git 命令，你看结果就行。
 
 ## 目录
 
 - [先搞懂两件事](#先搞懂两件事)
 - [整节课只记五个字](#整节课只记五个字)
+- [怎么让 AI 帮你做](#怎么让-ai-帮你做)
 - [课前准备（上课前做完）](#课前准备上课前做完)
 - [角色分配](#角色分配)
 - [第 0 轮：找到你的本子](#第-0-轮找到你的本子)
@@ -29,7 +30,7 @@ lesson-3-git-demo · Git 入门课的课堂跟练仓库
 
 你电脑上一共有四个地方：
 
-| 地方 | 是什么 | 怎么过去 |
+| 地方 | 是什么 | AI 会执行的命令 |
 |---|---|---|
 | 草稿纸 | 你正在改的文件 | 直接改、保存 |
 | 待交区 | 挑好这次要交的 | `git add .` |
@@ -42,36 +43,55 @@ lesson-3-git-demo · Git 入门课的课堂跟练仓库
 
 **拉、改、加、存、推**
 
-| 口诀 | 命令 | 意思 |
-|---|---|---|
-| 拉 | `git pull` | 把 GitHub 上的最新版拿回来 |
-| 改 | 改文件，保存 | 在草稿纸上改 |
-| 加 | `git add .` | 放进待交区 |
-| 存 | `git commit -m "…"` | 签名记进本子 |
-| 推 | `git push` | 传到 GitHub 上，大家都能看到 |
+| 口诀 | 你对 AI 说 | AI 会执行的命令 | 意思 |
+|---|---|---|---|
+| 拉 | 「帮我把 GitHub 上的最新版拉下来」 | `git pull` | 把 GitHub 上的最新版拿回来 |
+| 改 | 「帮我把某某文件里的某某改成……」 | 直接改文件、保存 | 在草稿纸上改 |
+| 加 | 「把改过的文件都放进待交区」 | `git add .` | 放进待交区 |
+| 存 | 「提交一下，说明写：……」 | `git commit -m "…"` | 签名记进本子 |
+| 推 | 「推到 GitHub 上」 | `git push` | 传到 GitHub 上，大家都能看到 |
 
 `git add .` 的那个点，意思是“当前文件夹里所有改过的”。今天全都用点就行。
+
+## 怎么让 AI 帮你做
+
+下面每一步都写成三段：
+
+- **对 AI 说**：你在 WorkBuddy 或 Codex 的对话框里说的话，照抄或用自己的话说都行。
+- **AI 会执行**：AI 实际跑的 Git 命令。**你不用自己跑**，写出来是让你认一认它长什么样。
+- **你会看到**：AI 跑完后给你看的结果。
+
+两个小规矩：
+
+1. **一次只让 AI 做一步。** 口诀里的每个字单独说一次，别一句话让它“拉、改、加、存、推”全做完，不然你就看不到中间发生了什么。
+2. **报错了先别让 AI 自己修。** 这节课要你亲眼看到报错。可以在开头先跟 AI 说一句：「接下来每次只执行我说的那一条 Git 命令，报错了把原始输出给我看，不要自动修复。」
 
 ## 课前准备（上课前做完）
 
 这一步最容易出问题，一定要在上课前做完。卡住了就找老师。
 
-### 1. 装 Git 和 VS Code
+### 1. 装好 AI 工具，注册 GitHub
 
-- Git：Mac 在终端里敲 `git --version`，没装会提示你安装；Windows 去 <https://git-scm.com> 下载安装。
-- VS Code：<https://code.visualstudio.com>
-- GitHub 命令行工具 gh：<https://cli.github.com>
+- 装好 WorkBuddy 或 Codex，能正常和 AI 对话。
 - 注册一个 GitHub 账号，把用户名发给老师。
 
-### 2. 接受老师的协作者邀请
+### 2. 让 AI 检查 Git 和 gh 装没装
+
+**对 AI 说**：「帮我看看电脑上装没装 Git 和 GitHub 的 gh 工具，没装就帮我装上。」
+
+**AI 会执行**：`git --version`、`gh --version`，没装的话会帮你安装（Git 的官网是 <https://git-scm.com>，gh 的官网是 <https://cli.github.com>）。
+
+### 3. 接受老师的协作者邀请
 
 这个仓库是公开的，**谁都能 clone（抄一份）下来，但只有协作者才能 push（传到 GitHub 上）**。就像聚餐群：谁都能看到大家定了吃什么，但只有进了群的人才能发言。
 
 老师会用你的 GitHub 账号发邀请，去邮箱里点 **Accept**（或者打开 <https://github.com/xykong36/lesson-3-git-demo/invitations>）。不接受邀请，到第 1 轮 push 时会看到 `Permission denied` 或 403。
 
-### 3. 告诉 Git 你是谁，顺手配好几个开关
+### 4. 告诉 Git 你是谁，顺手配好几个开关
 
-打开终端，一行一行敲：
+**对 AI 说**：「帮我配置 Git：用户名 Alice（换成你的角色名或真名），邮箱 你的邮箱。再帮我执行下面这几条配置。」然后把下面这段命令一起复制发给 AI。
+
+**AI 会执行**：
 
 ```bash
 # 身份：用你自己的名字，git log 里会显示
@@ -80,19 +100,26 @@ git config --global user.email "你的邮箱"
 
 # 避免 pull 时的“分叉”提示和弹出编辑器
 git config --global pull.rebase false
-git config --global core.editor "code --wait"
 echo 'export GIT_MERGE_AUTOEDIT=no' >> ~/.zshrc   # Windows：setx GIT_MERGE_AUTOEDIT no
 ```
 
-### 4. 登录 GitHub
+### 5. 登录 GitHub
+
+**对 AI 说**：「帮我登录 GitHub。」
+
+**AI 会执行**：
 
 ```bash
 gh auth login
 ```
 
-跟着提示走，选 **HTTPS**，再选**用浏览器登录**，最省事。
+一般会弹出浏览器让你确认，选 **HTTPS**、**用浏览器登录**最省事。浏览器里点确认就行，看不懂就问 AI 或老师。
 
-### 5. 把仓库抄一份到你电脑上
+### 6. 把仓库抄一份到你电脑上
+
+**对 AI 说**：「帮我把 https://github.com/xykong36/lesson-3-git-demo.git 克隆到我的家目录。」
+
+**AI 会执行**：
 
 ```bash
 cd ~ && git clone https://github.com/xykong36/lesson-3-git-demo.git
@@ -100,9 +127,11 @@ cd ~ && git clone https://github.com/xykong36/lesson-3-git-demo.git
 
 这会在你的家目录里多出一个 `lesson-3-git-demo` 文件夹，这就是你的本子。
 
-### 6. 用 VS Code 打开它
+### 7. 在 WorkBuddy 或 Codex 里打开这个文件夹
 
-VS Code 菜单 **文件 → 打开文件夹**，选家目录下的 `lesson-3-git-demo`。再用菜单 **终端 → 新建终端** 打开终端，敲一下 `git pull`，能跑通就准备好了。
+在 WorkBuddy 或 Codex 里打开家目录下的 `lesson-3-git-demo` 文件夹，**之后的每一步都在这个文件夹里跟 AI 说**。
+
+打开后跟 AI 说一句「帮我把 GitHub 上的最新版拉下来」，AI 执行 `git pull` 能跑通，就准备好了。
 
 ## 角色分配
 
@@ -116,14 +145,17 @@ VS Code 菜单 **文件 → 打开文件夹**，选家目录下的 `lesson-3-git
 
 仓库里一共就这几个文件：三张名片（`名片-Alice.md`、`名片-Bob.md`、`名片-Carol.md`），加上一份 `周五聚餐.md`，里面写着“我们决定吃：待定”。
 
-下面的例子都用 Alice 这个角色来写。你扮演的是 Bob 或 Carol，就把命令和文件里的名字、食物换成你的角色对应的。
+下面的例子都用 Alice 这个角色来写。你扮演的是 Bob 或 Carol，就把跟 AI 说的话、命令和文件里的名字、食物换成你的角色对应的。
 
 ## 第 0 轮：找到你的本子
 
-**老师说**：“打开终端，敲 `cd ~/lesson-3-git-demo`，再敲 `git status`。看到 working tree clean 的举手。”
+**老师说**：“在 WorkBuddy 或 Codex 里打开 `lesson-3-git-demo` 文件夹，让 AI 看看状态。看到 working tree clean 的举手。”
+
+**对 AI 说**：「帮我看看这个仓库现在的状态。」
+
+**AI 会执行**：
 
 ```bash
-cd ~/lesson-3-git-demo
 git status
 ```
 
@@ -138,7 +170,7 @@ nothing to commit, working tree clean
 
 **这说明**：你的本子和 GitHub 上的仓库一模一样，草稿纸上也没有没交的东西。
 
-如果看到 `No such file or directory` 或 `not a git repository`，多半是没进对文件夹，举手找老师。
+如果看到 `No such file or directory` 或 `not a git repository`，多半是没打开对文件夹，举手找老师。
 
 ## 第 1 轮：写名片报口味
 
@@ -146,32 +178,42 @@ nothing to commit, working tree clean
 
 **1. 拉**
 
-```bash
-git pull
-```
+**对 AI 说**：「帮我把 GitHub 上的最新版拉下来。」
 
-会看到 `Already up to date.`，意思是 GitHub 上没有你还没拿到的新东西。
+**AI 会执行**：`git pull`
+
+**你会看到**：`Already up to date.`，意思是 GitHub 上没有你还没拿到的新东西。
 
 **2. 改**
 
-打开**你的角色的**名片（扮演 Alice 的人打开 `名片-Alice.md`），把“我最爱吃”“最近在看”两行填上，**保存**（Mac 按 Cmd+S，Windows 按 Ctrl+S）。然后看一眼：
+**对 AI 说**：「帮我打开 `名片-Alice.md`，把“我最爱吃”填成……，“最近在看”填成……，然后保存。」（换成你的角色名和你自己的内容）
 
-```bash
-git status
-```
+你也可以自己在 WorkBuddy 或 Codex 里打开**你的角色的**名片，直接改完保存（Mac 按 Cmd+S，Windows 按 Ctrl+S）。
 
-文件名是**红色**的：你在草稿纸上改了，但还没放进待交区。
+改完再**对 AI 说**：「看看现在的状态。」
+
+**AI 会执行**：`git status`
+
+**你会看到**：文件出现在 `Changes not staged for commit` 下面（有的工具里是**红色**）：你在草稿纸上改了，但还没放进待交区。
 
 **3. 加**
+
+**对 AI 说**：「把改过的文件都放进待交区，再看看状态。」
+
+**AI 会执行**：
 
 ```bash
 git add .
 git status
 ```
 
-文件名变成**绿色**了：已经放进待交区。
+**你会看到**：文件跑到了 `Changes to be committed` 下面（有的工具里变成**绿色**）：已经放进待交区。
 
 **4. 存**
+
+**对 AI 说**：「提交一下，说明写：Alice 填好了名片。」（换成你的角色名）
+
+**AI 会执行**：
 
 ```bash
 git commit -m "Alice 填好了名片"      # 换成你的角色名
@@ -179,7 +221,11 @@ git commit -m "Alice 填好了名片"      # 换成你的角色名
 
 现在你的本子里有了这一笔，但 GitHub 上还没有，别人还看不到你爱吃什么。
 
-**5. 推：等老师喊“三、二、一”，组里三个人一起推！**
+**5. 推：等老师喊“三、二、一”，组里三个人同时跟 AI 说！**
+
+**对 AI 说**：「推到 GitHub 上。报错了别自己修，把输出给我看。」
+
+**AI 会执行**：
 
 ```bash
 git push
@@ -199,12 +245,16 @@ hint: contains work that you do not have locally.
 
 **怎么办：先拉再推。**
 
+**对 AI 说**：「先把 GitHub 上的最新版拉下来，再推一次。」
+
+**AI 会执行**：
+
 ```bash
 git pull
 git push
 ```
 
-`git pull` 时会看到 `Merge made by the 'ort' strategy.`，说明 Git 已经把别人的名片和你的合在一起了。再 `git push` 就能传上去。最后一个推的人可能又被拒一次，没关系，再拉一次、再推一次。
+`git pull` 时会看到 `Merge made by the 'ort' strategy.`，说明 Git 已经把别人的名片和你的合在一起了。再 `git push` 就能传上去。最后一个推的人可能又被拒一次，没关系，再让 AI 拉一次、推一次。
 
 老师刷新 GitHub 页面，三张名片都在，你们组每个人爱吃什么一目了然。
 
@@ -214,13 +264,19 @@ git push
 
 **1. 拉**
 
-```bash
-git pull
-```
+**对 AI 说**：「帮我把 GitHub 上的最新版拉下来。」
 
-**2. 改**：按角色分配表留言：Alice 给 Bob、Bob 给 Carol、Carol 给 Alice。打开**对方角色的**名片，在“别人眼中的我”下面写一句第一印象，签上你的角色名，保存。
+**AI 会执行**：`git pull`
+
+**2. 改**：按角色分配表留言：Alice 给 Bob、Bob 给 Carol、Carol 给 Alice。
+
+**对 AI 说**：「帮我打开 `名片-Bob.md`，在“别人眼中的我”下面加一句：……（你的第一印象）—— Alice，然后保存。」（换成你的留言对象和你的角色名）
 
 **3. 加、存**
+
+**对 AI 说**：「把改动放进待交区，然后提交，说明写：Alice 给 Bob 留言。」（换成你的角色名和留言对象）
+
+**AI 会执行**：
 
 ```bash
 git add .
@@ -229,17 +285,21 @@ git commit -m "Alice 给 Bob 留言"      # 换成你的角色名和留言对象
 
 **4. 推**
 
+**对 AI 说**：「推到 GitHub 上。」
+
+**AI 会执行**：
+
 ```bash
 git push
 ```
 
-这次老师不喊一起推。被拒了？你已经知道怎么办了：先 `git pull`，再 `git push`。
+这次老师不喊一起推。被拒了？你已经知道怎么办了：让 AI 先 `git pull`，再 `git push`。
 
 **5. 都推上去了，再拉一次，打开你自己的名片**
 
-```bash
-git pull
-```
+**对 AI 说**：「再把 GitHub 上的最新版拉下来，然后给我看看 `名片-Alice.md` 的内容。」（换成你的角色名）
+
+**AI 会执行**：`git pull`
 
 **你会看到**：你自己一个字没改，但你的名片里多了别人写给你的话。
 
@@ -247,11 +307,15 @@ git pull
 
 **6. 看一眼流水账**
 
+**对 AI 说**：「给我看看提交记录，一行一条。」
+
+**AI 会执行**：
+
 ```bash
 git log --oneline
 ```
 
-最上面是最新的，每一条都有签名。按 `q` 退出。
+**你会看到**：最上面是最新的，每一条都有签名。
 
 ## 第 3 轮：周五聚餐吃什么（冲突）
 
@@ -259,11 +323,15 @@ git log --oneline
 
 **1. 拉**
 
-```bash
-git pull
-```
+**对 AI 说**：「帮我把 GitHub 上的最新版拉下来。」
 
-**2. 改**：打开 `周五聚餐.md`，把“待定”改成你的角色想吃的（按角色分配表：Alice 写火锅、Bob 写烤肉、Carol 写日料）。**不许和别人商量**。保存。
+**AI 会执行**：`git pull`
+
+**2. 改**：把 `周五聚餐.md` 里的“待定”改成你的角色想吃的（按角色分配表：Alice 写火锅、Bob 写烤肉、Carol 写日料）。**不许和别人商量**。
+
+**对 AI 说**：「帮我把 `周五聚餐.md` 里的“待定”改成火锅，保存。」（换成你的角色想吃的）
+
+改完文件长这样：
 
 ```
 # 周五聚餐
@@ -272,12 +340,20 @@ git pull
 
 **3. 加、存**
 
+**对 AI 说**：「把改动放进待交区，然后提交，说明写：Alice 想吃火锅。」（换成你的角色名和食物）
+
+**AI 会执行**：
+
 ```bash
 git add .
 git commit -m "Alice 想吃火锅"      # 换成你的角色名和食物
 ```
 
-**4. 推：老师喊“三、二、一，一起推！”**
+**4. 推：老师喊“三、二、一，一起说！”**
+
+**对 AI 说**：「推到 GitHub 上。报错了别自己修，把输出给我看。」
+
+**AI 会执行**：
 
 ```bash
 git push
@@ -286,6 +362,10 @@ git push
 一人成功，两人被拒（`! [rejected]`，和第 1 轮一样）。
 
 **5. 被拒的人：拉**
+
+**对 AI 说**：「帮我把 GitHub 上的最新版拉下来。有冲突先别自己解决，把输出给我看。」
+
+**AI 会执行**：
 
 ```bash
 git pull
@@ -301,7 +381,9 @@ Automatic merge failed; fix conflicts and then commit the result.
 
 **这说明**：上一轮 Git 自己就合好了，这一轮为什么不行？因为你们改的是**同一个文件的同一行**。一边说火锅，一边说烤肉，Git 不知道听谁的。Git 不替你们点菜，它把两个版本都摆在你面前，让人来商量。
 
-**6. 打开 `周五聚餐.md`，看懂三行符号**
+**6. 让 AI 给你看 `周五聚餐.md`，看懂三行符号**
+
+**对 AI 说**：「给我看看 `周五聚餐.md` 现在的内容。」
 
 ```
 # 周五聚餐
@@ -320,8 +402,8 @@ Automatic merge failed; fix conflicts and then commit the result.
 
 **7. 商量、删符号**
 
-- **商量**：和对方真的商量一下，改成一行，比如 `我们决定吃：火锅配烤肉`。
-- **删符号**：把 `<<<<<<<`、`=======`、`>>>>>>>` 这三行整行删掉，保存。
+- **商量**：和对方真的商量一下，定成一行，比如 `我们决定吃：火锅配烤肉`。
+- **删符号**：**对 AI 说**：「帮我把 `周五聚餐.md` 的冲突解决掉，改成一行“我们决定吃：火锅配烤肉”，把 `<<<<<<<`、`=======`、`>>>>>>>` 这三行都删掉，保存。」
 
 改完应该长这样：
 
@@ -330,9 +412,11 @@ Automatic merge failed; fix conflicts and then commit the result.
 我们决定吃：火锅配烤肉
 ```
 
-VS Code 里也可以点冲突上方的“保留双方更改”，再手动整理成一行。
-
 **8. 再加、存、推**
+
+**对 AI 说**：「把改动放进待交区，提交，说明写：商量好了：火锅配烤肉。然后推到 GitHub 上。」
+
+**AI 会执行**：
 
 ```bash
 git add .
@@ -340,7 +424,7 @@ git commit -m "商量好了：火锅配烤肉"
 git push
 ```
 
-**9. 最后一个推的人**：再拉一次，你会再冲突一次（比如你扮演 Carol，就是你的日料 vs 刚商量好的火锅配烤肉）。这次自己解决，另外两个人只看不帮。步骤一样：商量、删符号、加、存、推。
+**9. 最后一个推的人**：再让 AI 拉一次，你会再冲突一次（比如你扮演 Carol，就是你的日料 vs 刚商量好的火锅配烤肉）。这次自己解决，另外两个人只看不帮。步骤一样：商量、让 AI 删符号、加、存、推。
 
 到这里，你们组周五吃什么终于定下来了。
 
@@ -352,35 +436,43 @@ git push
 
 **1. 拉最新的，看分叉和汇合**
 
+**对 AI 说**：「先把 GitHub 上的最新版拉下来，再用图的样子给我看提交记录。」
+
+**AI 会执行**：
+
 ```bash
 git pull
 git log --oneline --graph
 ```
 
-分叉的地方就是“两个人同时改”，汇合的地方就是“合并”。按 `q` 退出。
+**你会看到**：分叉的地方就是“两个人同时改”，汇合的地方就是“合并”。
 
 **2. 看你的名片被谁改过**
+
+**对 AI 说**：「给我看看 `名片-Alice.md` 每一次被谁、在什么时候、改了什么。」（换成你的角色名）
+
+**AI 会执行**：
 
 ```bash
 git log -p 名片-Alice.md      # 换成你的角色名
 ```
 
-谁、什么时候、改了哪几个字，全都记着。按 `q` 退出。
+谁、什么时候、改了哪几个字，全都记着。
 
 **3. 看投影**：老师会在 VS Code 的 Git Graph 里展示，你们组三个人的提交一目了然。
 
 ## 常见翻车
 
-| 你看到的 | 原因 | 怎么办 |
+| 你看到的 | 原因 | 怎么办（对 AI 说） |
 |---|---|---|
-| `nothing to commit` | 文件没保存 | Cmd+S / Ctrl+S 保存，再 `git add .`、`git commit` |
-| 弹出 vim，一堆 `~` 的界面 | `GIT_MERGE_AUTOEDIT` 没生效 | 按 `Esc`，输入 `:wq` 回车；课后补配置 |
-| `hint: You have divergent branches…` | 没配 `pull.rebase false` | `git config --global pull.rebase false`，再 `git pull` |
-| `Permission denied` / 403 | 没接受协作者邀请，或没登录 | 先看同桌操作，课后处理（接受邀请、`gh auth login`） |
-| `Author identity unknown` | 没告诉 Git 你是谁 | `git config --global user.name "Alice"`（换成你的角色名），再配 `user.email` |
-| 忘删冲突符号就提交了 | 没关系 | 打开文件删掉，再加、存、推一次 |
-| 解决冲突后 commit 时弹编辑器 | 没带说明 | 用 `git commit -m "..."` 带上说明就不会弹 |
-| 冲突时慌了，想重来 | 没关系 | `git merge --abort` 回到冲突前，然后重新 `git pull` |
+| `nothing to commit` | 文件没保存 | 「帮我确认文件已经保存了，再把改动放进待交区，然后提交。」 |
+| AI 卡住不动，或者提示在等编辑器 | `GIT_MERGE_AUTOEDIT` 没生效，或 commit 没带说明 | 「刚才的命令在等编辑器，帮我退出，然后用 `git commit -m` 带上说明重新提交。」 |
+| `hint: You have divergent branches…` | 没配 `pull.rebase false` | 「帮我执行 `git config --global pull.rebase false`，再拉一次。」 |
+| `Permission denied` / 403 | 没接受协作者邀请，或没登录 | 先看同桌操作，课后处理：接受邀请，再对 AI 说「帮我登录 GitHub」 |
+| `Author identity unknown` | 没告诉 Git 你是谁 | 「帮我把 Git 的用户名设成 Alice，邮箱设成……」（换成你的角色名） |
+| 忘删冲突符号就提交了 | 没关系 | 「帮我把 `周五聚餐.md` 里剩下的冲突符号删掉，再加、存、推一次。」 |
+| AI 自己把报错修掉了，你没看到 | AI 太热心 | 「以后每次只执行我说的那一条命令，报错了先给我看，不要自动修复。」 |
+| 冲突时慌了，想重来 | 没关系 | 「帮我执行 `git merge --abort` 回到冲突前，然后重新拉一次。」 |
 
 ## 最后一句
 
